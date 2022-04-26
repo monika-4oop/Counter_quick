@@ -2,30 +2,28 @@ import {useState} from "react";
 import "./Counter.css";
 
 export const Counter= ()=>{
-    const[counter, setCounter]= useState(1)
-    const onClick= ()=>{
-           if(counter>=1000){
-               alert("max number");
-           } 
-           else{
-               setCounter(counter+1);
-           }
-           
+    const [counter, setCounter] = useState("1");
+
+  function handleChange(e) {
+    let num = "";
+
+    num += e.target.value;
+
+    if (+num > 1000) {
+      console.log("max");
+      return;
+    } else {
+      console.log(typeof +num);
+      setCounter(num);
     }
-    const onClickdec=()=>{
-        if(counter<=1){
-            alert("min number");
-        } 
-        else{
-            setCounter(counter-1);
-        }
-    }
+    
+  }
+  
     return(
-        <div className="container">
-            <h1 className="dec" onClick={()=>{onClickdec()}}>-</h1>
-            <h1>{counter}</h1>
-            <h1 className="inc" onClick={()=>{onClick()}}>+</h1>
-            
-        </div>
+        <div className="counter">
+        <button className="dec" onClick={() =>  {if(+counter<=1){alert("min")}else{setCounter(counter - 1)}}}>-</button>
+        <input type="number" value={counter} onChange={handleChange} />
+        <button className="inc" onClick={() => {if(+counter>=1000){alert("max")}else{setCounter(+counter + 1)}}}>+</button>
+      </div>
     )
 }
