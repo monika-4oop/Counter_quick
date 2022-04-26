@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+}
+ h1 {
+   
+    border:2px solid #a54946;
+    padding: 1rem;
+    color:#a54946;
+}
+
+.dec{
+    border-top-left-radius: 10px ;
+    border-bottom-left-radius: 10px ;
+
+}
+.inc{
+    border-top-right-radius: 10px ;
+    border-bottom-right-radius: 10px ;
+    background-color: #a54946;
+    color:white;
+
+}
